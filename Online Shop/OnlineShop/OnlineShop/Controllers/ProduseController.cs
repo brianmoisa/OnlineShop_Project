@@ -28,6 +28,10 @@ namespace OnlineShop.Controllers
         public IActionResult Produse(string id)
         {
             return View(_db.GetProduseCategorii(id));
+
+
+
+
         }
 
         [HttpGet]
