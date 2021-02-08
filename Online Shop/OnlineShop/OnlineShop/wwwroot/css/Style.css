@@ -10,7 +10,7 @@ color: white;
 font-family:'Poppins', sans-serif;
 }
 body {
-    background: white;
+    background: #fff;
 }
 
 header {
@@ -142,12 +142,22 @@ nav .phone ion-icon {
     align-self: center;
 }
 
+.logo a:link,
+.logo a:visited{
+    text-decoration:none;
+    transition:color 0.3s;
+}
+
+.logo a:hover,
+.logo a:active{
+    color:#e5e3e3;
+}
+
 .search-bar {
     flex: 40%;
     align-self: center;
-    text-align:right;
+    text-align: right;
 }
-
 
 .search-bar input[type=text] {
     padding: 6px;
@@ -213,7 +223,6 @@ flex-wrap: wrap;
 align-self: center;
 align-items: center;
 justify-content: center;
-
 }
 
 .slider .card {
@@ -225,7 +234,6 @@ justify-content: center;
     border: 1px solid;
     padding: 10px;
     margin-bottom: 20px;
-
 }
 
 .slider .card .img {
@@ -466,7 +474,6 @@ justify-content: center;
     vertical-align: middle;
     padding-top: 15px;
     padding-left:20px;
-
     height: 55px;
     width: 158px;
     background: #DAA520;
@@ -501,4 +508,139 @@ justify-content: center;
     .description-and-details .description, .details, .reviews {
         margin-top: 20px;
         text-align: justify;
+    }
+
+
+/*----------------LOGIN AND REGISTER------------------*/
+
+.container-login {
+    display: flex;
+    width: 100%;
+    border: 1px solid #e6e6e6;
+    height:310px;
+}
+
+.login-form {
+    flex: 50%;
+    background-color: #e6e6e6;
+}
+.login-form form {
+    padding-top: 22px;
+    padding-left: 22px;
+}
+.login-form label,
+.register-form label{
+    color:black;
+    text-transform:uppercase;
+    letter-spacing: 1px;
+    font-size:14px;
+    font-weight:600;
+}
+    .login-form input[type=text], input[type=password],
+    .register-form input[type=text], input[type=password] {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding: 10px;
+        width: 90%;
+        color: black;
+        outline: none;
+        border-radius: 10px;
+        border: 1px solid #c2c1c1;
+    }
+
+.login-form .buttons,
+.register-form .buttons{
+    display: flex;
+    align-items:center;
+    margin-top:10px;
+}
+.login-form .buttons .btnSubmit,
+.register-part .buttons .btnSubmit,
+.register-form .buttons .btnSubmit{
+    margin-top: 10px;
+    background-color: #3b3b3b;
+    padding: 10px 30px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: background-color 0.3s;
+    color: white;
+}
+
+.login-form .buttons .btnSubmit:hover,
+.register-part .buttons .btnSubmit:hover,
+.register-form .buttons .btnSubmit:hover {
+    background-color: #555454;
+}
+
+.login-form .buttons a {
+    margin-top:10px;
+    margin-left:45px;
+    color:black;
+    cursor: pointer;
+    transition: color 0.2s;
+    font-weight: 500;
+}
+
+.login-form .buttons a:hover,
+.login-form .buttons a:visited{
+    color: #525252;
+}
+
+.login-form .buttons p,
+.register-form .buttons p{
+    margin-top: 10px;
+    margin-left: 65px;
+    color: black;
+    font-style: italic;
+}
+
+.register-part {
+    flex: 50%;
+}
+
+.register-part .info-client {
+    height: 150px;
+    display: inline-block;
+    padding:75px 25px;   
+}
+
+.register-part .info-client p{
+    text-align:justify;
+    color:black;
+    margin-bottom:15px;
+}
+
+.register-part .info-client a {
+
+    margin-top:25px;
+    background-color: #3b3b3b;
+
+}
+
+.register-form {
+    width: 50%;
+    margin: 50px auto;
+    border: 1px solid #e6e6e6;
+}
+.register-form form{
+    width:95%;
+    margin:0 auto;
+    display:block;
+    padding-left:5%;
+}
+
+.register-form h2{
+    text-align:center;
+}
+.register-form .buttons .btnSubmit{
+    margin-bottom:20px;
+}
+
+    .register-form .buttons p{
+       padding-left:65px;
     }

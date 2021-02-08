@@ -19,6 +19,7 @@ namespace OnlineShop.Data
         public DbSet<Produs> Produse { get; set; }
         public DbSet<Promotie_Produs> Promotii_Produse { get; set; }
         public DbSet<Promotie> Promotii { get; set; }
+        public DbSet<Utilizator> Utilizatori { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

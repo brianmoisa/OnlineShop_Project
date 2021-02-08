@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Logare";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/Style.css" rel="stylesheet" />
+
+
+
+<section class="section-login">
+    <div class="row">
+        <h2>Logare</h2>
+        <div class="container-login">
+            <div class="login-form">
+                <form action="#">
+                    <label>Adresa e-mail *</label><br>
+                    <input type="text" placeholder="Introduceti adresa de e-mail" name="e-mail" /><br>
+
+                    <label>Parola *</label><br>
+                    <input type="password" placeholder="Introduceti parola" name="parola" /><br>
+                    <div class="buttons">
+                        <input  type="submit" name="btnSubmit" value="Logare" class="btnSubmit"/>
+                        <a>Ati uitat parola?</a>
+                        <p>* Campuri obligatorii</p>
+                    </div>
+                   
+                </form>
+
+            </div>
+
+            <div class="register-part">
+                <div class="info-client">
+                    <h3>Client nou</h3>
+                    <p>Prin crearea unui cont în cadrul magazinului, veți putea parcurge mai rapid procesul de finalizare a comenzilor, veți avea posibilitatea de a stoca mai multe adrese de expediere, de a vedea și urmări comenzile și multe altele.</p>
+                    <div class="buttons">
+                        <input type="button" name="btnSubmit" value="Inregistrare" class="btnSubmit" onclick="@("window.location.href='" + @Url.Action("Inregistrare", "Home") + "'");" />
+
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+</section>

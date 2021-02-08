@@ -29,7 +29,7 @@
         <div class="row">
             <div class="header-container">
                 <div class="logo">
-                    ApisCOM
+                    <a asp-controller="Home" asp-action="Index">ApisCOM</a>
                 </div>
                 <div class="search-bar">
                     <form action="/action_page.php">
@@ -38,7 +38,7 @@
                     </form>
                 </div>
                 <div class="others">
-                    <a href="#"><ion-icon name="person"></ion-icon></a> <a href="#">Contul meu</a>
+                    <a href="#"><ion-icon name="person"></ion-icon></a> <a asp-controller="Home" asp-action="Logare">Contul meu</a>
                     <a href="#"><ion-icon name="heart"></ion-icon></a> <a href="#">Lista dorinte</a>
                     <a href="#"><ion-icon name="cart"></ion-icon> <a href="#">Cosul meu</a>
                 </div>
@@ -49,9 +49,8 @@
     @await Component.InvokeAsync("NavBar")
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
+    <div class="body-content">
         @RenderBody()
-        <hr />
         <footer></footer>
     </div>
 
