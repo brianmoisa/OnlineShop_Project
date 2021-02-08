@@ -1,0 +1,74 @@
+﻿@model OnlineShop.ViewModels.ProdusePromotieViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link href="~/css/Style.css" rel="stylesheet" />
+
+
+<section class="section-products-home">
+    <div class="row">
+        <h1>Produse aflate la promotie</h1>
+        <div class="slider">
+            @foreach (var item in Model.produs_promo)
+            {
+
+
+                <div class="card">
+                    <div class="img">
+                        <img src="~/images/@item.Poza" />
+                    </div>
+                    <div class="content">
+                        <div class="title">  <div class="title"><a asp-controller="Produse" asp-action="ProdusDetalii" asp-route-id="@item.Id_Produs">@item.Nume</a></div></div>
+                    </div>
+
+                    <div class="prices">
+                        <div class="title old-price">Pret vechi: @item.Pret RON</div>
+                        <div class="title new-price ">Pret nou: @item.Pret_redus RON</div>
+                    </div>
+                    <div class="btn">
+                        <button>Cumpara</button>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+    </div>
+</section>
+
+<section class="section-products-home">
+
+    <div class="row">
+
+        <h1>Produse noi</h1>
+        <div class="slider">
+            @foreach (var item in Model.produse)
+            {
+
+
+                <div class="card">
+                    <div class="img">
+                        <img src="~/images/@item.Poza" />
+                    </div>
+                    <div class="content">
+                        <div class="title"><a href="#">@item.Nume</a></div>
+
+                    </div>
+
+                    <div class="prices without-promo">
+                        <div class="title">Pret: @item.Pret RON</div>
+                    </div>
+                    <div class="btn">
+                        <button>Cumpara</button>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+    </div>
+</section>
+

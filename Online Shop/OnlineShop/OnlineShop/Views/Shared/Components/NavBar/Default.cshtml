@@ -1,0 +1,32 @@
+﻿@model IEnumerable<OnlineShop.Models.Categorie>
+
+<nav>
+    <div class="row">
+        
+        <div class="phone">
+            <ion-icon name="call-outline"></ion-icon>
+            +40-742-577-722
+        
+        </div>
+        <ul>
+            <li>
+                <a href="#"><ion-icon name="list-outline" class="icon-list"></ion-icon>Categorii</a>
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        @*<li><a href="/Produse/ProduseCurrent?id=ssss">@item.Nume_categorie</a></li>*@
+                        <li>
+                            <a asp-controller="Produse"
+                               asp-action="Produse"
+                               asp-route-id="@item.Nume_categorie">@item.Nume_categorie</a>
+                        </li>
+
+                    }
+                </ul>
+            </li>
+            <li><a href="#">Acasa</a></a></li>
+            <li><a href="#">Cum cumpar</a></li>
+            <li><a href="#">Servicii</a></li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,103 @@
+﻿@model OnlineShop.Models.Produs
+@{
+    ViewData["Title"] = "ProdusDetalii";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/Style.css" rel="stylesheet" />
+
+<section class="section-product-solo">
+    <div class="row">
+        <p class="sursa">Pagina Principala / Categorii / @Model.Nume_subcateg / <span>@Model.Nume</span></p>
+        <div class="container">
+
+            <div class="img-content">
+
+                <div class="img">
+                    <img src="~/images/@Model.Poza" />
+                </div>
+
+                <div class="content-prod-solo">
+                    <div class="title-price">
+                        <h1>@Model.Nume-@Model.Brand</h1>
+                        <h2>Pret: @Model.Pret RON</h2>
+                        <h4>Veți câștiga @(@Model.Pret/50) puncte de fidelitate pentru acest articol</h4>
+                        <h5>Stoc disponibil: @Model.Cantitate bucati</h5>
+                    </div>
+                    <div class="buy clearfix">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
+                        <input type="number" class="quantity" id="id_form-0-quantity" min="1" max="@Model.Cantitate" name="form-0-quantity" value="1">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
+
+                        <a href="#" class="btn-buy">Adauga in cos</a>
+                    </div>
+                    <div class="prod-whishlist">
+                        <a href="#"><ion-icon name="heart-outline"></ion-icon></a> <a href="#">Lista dorinte</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="description-and-details">
+                <div class="description">
+                    <h3>Descriere</h3>
+                    <hr>
+                    <p>
+                        @if (Model.Descriere != null)
+                        {
+                            string[] descrieri = @Model.Descriere.Split('.');
+                            int i = 0;
+
+                            foreach (var str in descrieri)
+                            {
+                                i = i + 1;
+                                @str.Trim();
+                                if (i < descrieri.Length)
+                                {
+                                    <br>
+                                }
+
+                            }
+                        }
+                    </p>
+                </div>
+
+                <div class="details">
+                    <h3>Detalii tehnice</h3>
+                    <hr>
+                    <p>
+                    @if (Model.DetaliiTehnice != null)
+                    {
+                        string[] detalii = @Model.DetaliiTehnice.Split('.');
+                        int i = 0;
+
+                        foreach (var str in detalii)
+                        {
+                            i = i + 1;
+                            @str.Trim();
+                            if (i < detalii.Length)
+                            {
+                                <br>
+                            }
+
+                        }
+                    }
+
+                    </p>
+                </div>
+
+                <div class="reviews">
+                    <h3>Recenzii</h3>
+                    <hr>
+                    <p>
+                       0 Recenzii
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+

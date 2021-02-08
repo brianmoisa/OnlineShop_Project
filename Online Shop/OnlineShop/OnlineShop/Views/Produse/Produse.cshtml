@@ -1,0 +1,71 @@
+﻿@model OnlineShop.ViewModels.ProduseCategoriiViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/Style.css" rel="stylesheet" />
+
+<section class="products-section">
+
+    <div class="row">
+        <div class="prod-categ-title">
+            <p class="sursa">Pagina Principala/ @Model.titluPagina</p>
+            <h1 class="titlu-pagina-prod">@Model.titluPagina</h1>
+        </div>
+        <div class="container-products-filters">
+            <div class="filters">
+                <h3> Filtreaza</h3>
+                <div class="subgategories-filters">
+                    <h4>Subcategorie</h4>
+                    @foreach (var item in Model.Subcategorie)
+                    {
+                        
+                    <label style="color:black">
+                        <input type="radio" id="@item.Nume_subcateg" name="radio" value="@item.Nume_subcateg" />&nbsp;
+                    <span>@item.Nume_subcateg</span>
+                    </label><br />
+                    }
+                </div>
+            </div>
+
+
+            <div class="slider slider-products">
+
+                @foreach (var item in Model.Produse)
+                {
+
+                        <div class="card">
+                            <div class="img">
+                                <img src="~/images/@item.Poza" />
+                            </div>
+                            <div class="content">
+                                <div class="title"><a asp-controller="Produse" asp-action="ProdusDetalii" asp-route-id="@item.Id_Produs">@item.Nume</a></div>
+
+                            </div>
+
+                            <div class="prices without-promo">
+                                <div class="title">Pret: @item.Pret RON</div>
+                            </div>
+                            <div class="btn">
+                                <button>Cumpara</button>
+                            </div>
+                        </div>
+
+
+
+                        }
+
+
+                </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+</section>
+
