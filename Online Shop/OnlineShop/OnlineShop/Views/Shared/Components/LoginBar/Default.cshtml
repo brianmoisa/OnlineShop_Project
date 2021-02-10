@@ -1,0 +1,17 @@
+﻿@page
+@using Microsoft.AspNetCore.Http
+@model IEnumerable<OnlineShop.Models.Categorie>
+
+<div class="others">
+    @if (HttpContext.Session.GetString("nume") == null)
+    {
+        <a href="#"><ion-icon name="person"></ion-icon></a> <a asp-controller="Home" asp-action="Logare">Contul meu</a>
+
+    }
+    else
+    {
+        <a href="#"><ion-icon name="person"></ion-icon></a> <a asp-controller="Home" asp-action="Logare">@HttpContext.Session.GetString("nume")</a>
+    }
+    <a href="#"><ion-icon name="heart"></ion-icon></a> <a href="#">Lista dorinte</a>
+    <a href="#"><ion-icon name="cart"></ion-icon> <a href="#">Cosul meu</a>
+</div>

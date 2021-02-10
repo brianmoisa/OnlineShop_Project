@@ -1,4 +1,5 @@
-﻿using OnlineShop.Classes;
+﻿using Microsoft.AspNetCore.Identity;
+using OnlineShop.Classes;
 using OnlineShop.Models;
 using OnlineShop.ViewModels;
 using System;
@@ -8,9 +9,13 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Repository
 {
-    public interface IProdusePromoRepository
+    public interface IHomeRepository
     {
         IEnumerable<Produs> GetProducts();
         IEnumerable<Produs_promotie> GetProductsPromo();
+
+
+        //void AddUser(InregistrareViewModel user);
+        //Utilizator GetUser(LogareViewModel user);
     }
 }

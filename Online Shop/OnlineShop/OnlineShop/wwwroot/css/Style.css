@@ -528,25 +528,34 @@ justify-content: center;
     padding-top: 22px;
     padding-left: 22px;
 }
-.login-form label,
-.register-form label{
-    color:black;
-    text-transform:uppercase;
-    letter-spacing: 1px;
-    font-size:14px;
-    font-weight:600;
+
+.login-form .controlls,
+.register-form .controlls{
+    margin-top:15px;
 }
-    .login-form input[type=text], input[type=password],
-    .register-form input[type=text], input[type=password] {
-        margin-top: 10px;
-        margin-bottom: 20px;
-        padding: 10px;
-        width: 90%;
+
+.login-form .controlls span,
+.register-form .controlls span{
+    color:red;
+    font-size:15px;
+}
+    .login-form label,
+    .register-form label {
         color: black;
-        outline: none;
-        border-radius: 10px;
-        border: 1px solid #c2c1c1;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 14px;
+        font-weight: 600;
     }
+.login-form input[type=text], input[type=password], input[type=email], input[type=tel],
+.register-form input[type=text], input[type=password], input[type=email], input[type=tel] {
+    padding: 10px;
+    width: 90%;
+    color: black;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #c2c1c1;
+}
 
 .login-form .buttons,
 .register-form .buttons{

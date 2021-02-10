@@ -1,4 +1,4 @@
-﻿
+﻿@model OnlineShop.ViewModels.LogareViewModel
 @{
     ViewData["Title"] = "Logare";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,18 +12,22 @@
         <h2>Logare</h2>
         <div class="container-login">
             <div class="login-form">
-                <form action="#">
-                    <label>Adresa e-mail *</label><br>
-                    <input type="text" placeholder="Introduceti adresa de e-mail" name="e-mail" /><br>
+                <form asp-controller="Home" asp-action="Logare" method="post">
+                    <label asp-for="Email">Adresa e-mail *</label><br>
+                    <input asp-for="Email" type="text" placeholder="Introduceti adresa de e-mail" /><br>
 
-                    <label>Parola *</label><br>
-                    <input type="password" placeholder="Introduceti parola" name="parola" /><br>
+                    <label asp-for="Parola">Parola *</label><br>
+                    <input asp-for="Parola" type="password" placeholder="Introduceti parola" /><br>
+
+                    <label asp-for="RememberMe">
+                        <input asp-for="RememberMe" />@Html.DisplayNameFor(m => m.RememberMe)
+                    </label>
                     <div class="buttons">
-                        <input  type="submit" name="btnSubmit" value="Logare" class="btnSubmit"/>
+                        <input type="submit" name="btnSubmit" value="Logare" class="btnSubmit" />
                         <a>Ati uitat parola?</a>
                         <p>* Campuri obligatorii</p>
                     </div>
-                   
+
                 </form>
 
             </div>

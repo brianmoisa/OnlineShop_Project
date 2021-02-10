@@ -1,4 +1,4 @@
-﻿
+﻿@model OnlineShop.ViewModels.InregistrareViewModel
 @{
     ViewData["Title"] = "Inregistrare";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,32 +8,54 @@
         <div class="register-form">
             <div>
                 <h2>Creare cont</h2>
-                <form>
-                    <label>Nume *</label><br>
-                    <input type="text" placeholder="Introduceti numele" name="nume" /><br>
-
-                    <label>Prenume *</label><br>
-                    <input type="text" placeholder="Introduceti prenumele" name="prenume" /><br>
-
-                    <label>Adresa e-mail *</label><br>
-                    <input type="text" placeholder="Introduceti adresa de e-mail" name="e-mail" /><br>
-
-                    <label>Parola *</label><br>
-                    <input type="password" placeholder="Introduceti parola" name="parola" /><br>
-
-                    <label>Telefon *</label><br>
-                    <input type="text" placeholder="Introduceti numarul de telefon" name="telefon" /><br>
-                    <div class="buttons">
-                        <input type="submit" name="btnSubmit" value="Logare" class="btnSubmit" />
-                        <p>* Campuri obligatorii</p>
+                <form asp-controller="Home" asp-action="Inregistrare" method="post" >
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="controlls">
+                        <label asp-for="Nume">Nume *</label><br>
+                        <input asp-for="Nume" type="text" placeholder="Introduceti numele"  />
+                        <span asp-validation-for="Nume" class="text-danger"></span><br>
                     </div>
+
+                    <div class="controlls">
+                        <label asp-for="Prenume">Prenume *</label><br>
+                        <input asp-for="Prenume" type="text" placeholder="Introduceti prenumele"  />
+                        <span asp-validation-for="Prenume" class="text-danger"></span><br>
+                    </div>
+
+                    <div class="controlls">
+                        <label asp-for="Email"></label><br>
+                        <input asp-for="Email" type="text" placeholder="Introduceti adresa de e-mail" />
+                        <span asp-validation-for="Email" class="text-danger"></span><br>
+                   </div>
+
+                    <div class="controlls">
+                        <label asp-for="Parola">Parola *</label><br>
+                        <input asp-for="Parola" type="password" placeholder="Introduceti parola"  />
+                        <span asp-validation-for="Parola" class="text-danger"></span><br>
+                    </div>
+                        <div class="controlls">
+                            <label asp-for="ConfirmParola">Confirmare Parola *</label><br>
+                            <input asp-for="ConfirmParola" type="password" placeholder="Introduceti parola" />
+                            <span asp-validation-for="ConfirmParola" class="text-danger"></span><br>
+                        </div>
+
+                        <div class="controlls">
+                            <label asp-for="Telefon">Telefon *</label><br>
+                            <input asp-for="Telefon" type="tel" placeholder="Introduceti numarul de telefon" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                            <span asp-validation-for="Telefon" class="text-danger"></span><br>
+                        </div>
+
+                        <div class="buttons">
+                            <input type="submit" name="btnSubmit" value="Logare" class="btnSubmit" />
+                            <p>* Campuri obligatorii</p>
+                        </div>
                 </form>
-            </div>  
+            </div>
         </div>
 
 
     </div>
-    
+   
 
 </section>
 

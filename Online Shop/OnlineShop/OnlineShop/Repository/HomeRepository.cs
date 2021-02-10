@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using OnlineShop.Classes;
 using OnlineShop.Data;
 using OnlineShop.Models;
@@ -10,11 +11,12 @@ using OnlineShop.ViewModels;
 
 namespace OnlineShop.Repository
 {
-    public class ProdusePromoRepository:IProdusePromoRepository
+    public class HomeRepository:IHomeRepository
     {
         private readonly ApplicationDBContext context;
 
-        public ProdusePromoRepository(ApplicationDBContext db)
+
+        public HomeRepository(ApplicationDBContext db)
         {
             context = db;
         }
@@ -63,5 +65,45 @@ namespace OnlineShop.Repository
             return prod_prom;
 
         }
+
+        //public void AddUser(InregistrareViewModel user)
+        //{
+        //    Utilizator utilizator = new Utilizator();
+        //    try
+        //    {
+        //        utilizator.Email = user.Email;
+        //        utilizator.Parola = BCrypt.Net.BCrypt.HashPassword(user.Parola);
+        //        utilizator.Nume = user.Nume;
+        //        utilizator.Prenume = user.Prenume;
+        //        utilizator.Telefon = user.Telefon;
+        //        utilizator.Cont_activ = "A";
+        //        context.Add(utilizator);
+        //        context.SaveChanges();
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw ex;
+        //    }
+
+
+        //}
+
+        //public Utilizator GetUser(LogareViewModel user)
+        //{
+        //    Utilizator utiliz = new Utilizator();
+        //    var account = context.Utilizatori.SingleOrDefault(x => x.Email == user.Email);
+        //    if(account != null)
+        //    {
+        //        if (BCrypt.Net.BCrypt.Verify(user.Parola, account.Parola))
+        //        {
+        //            utiliz.Nume = account.Nume;
+        //            utiliz.Prenume = account.Prenume;
+        //            utiliz.Email = account.Email;
+        //        }
+        //    }
+
+        //    return utiliz;
+        //}
     }
 }
