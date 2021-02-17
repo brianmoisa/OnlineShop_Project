@@ -66,6 +66,14 @@ namespace OnlineShop.Repository
 
         }
 
+        public ApplicationUser GetUserType(LogareViewModel utilizator)
+        {
+            ApplicationUser utiliz = new ApplicationUser();
+            utiliz = context.Utilizator.FirstOrDefault(x => x.Email == utilizator.Email);
+
+            return utiliz;
+        }
+
         //public void AddUser(InregistrareViewModel user)
         //{
         //    Utilizator utilizator = new Utilizator();

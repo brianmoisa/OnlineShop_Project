@@ -13,5 +13,8 @@ namespace OnlineShop.Models
 
         [PersonalData]
         public string LastName { get; set; }
+
+        [PersonalData]
+        public string UserType { get; set; }
     }
 }

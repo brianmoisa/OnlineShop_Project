@@ -154,7 +154,7 @@ nav .phone ion-icon {
 }
 
 .search-bar {
-    flex: 40%;
+    flex: 35%;
     align-self: center;
     text-align: right;
 }
@@ -164,7 +164,7 @@ nav .phone ion-icon {
     margin-top: 8px;
     font-size: 17px;
     border: none;
-    width: 450px;
+    width: 350px;
     border-radius: 15px;
     outline: none;
     color:black;
@@ -184,7 +184,7 @@ nav .phone ion-icon {
 }
 
 .others{
-    flex:40%;
+    flex:50%;
     text-align:right;
 }
 .others a {
@@ -517,7 +517,7 @@ justify-content: center;
     display: flex;
     width: 100%;
     border: 1px solid #e6e6e6;
-    height:310px;
+    height:340px;
 }
 
 .login-form {
@@ -534,28 +534,39 @@ justify-content: center;
     margin-top:15px;
 }
 
-.login-form .controlls span,
+.login-form .text-error ul,
+.register-form .text-error ul{
+    list-style:none;
+}
+.login-form .text-error ul li,
+.register-form .text-error ul li{
+    color: red;
+}
+
+    .login-form .controlls span,
 .register-form .controlls span{
     color:red;
     font-size:15px;
 }
     .login-form label,
-    .register-form label {
+    .register-form label,
+    .details-profile label{
         color: black;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-size: 14px;
         font-weight: 600;
     }
-.login-form input[type=text], input[type=password], input[type=email], input[type=tel],
-.register-form input[type=text], input[type=password], input[type=email], input[type=tel] {
-    padding: 10px;
-    width: 90%;
-    color: black;
-    outline: none;
-    border-radius: 10px;
-    border: 1px solid #c2c1c1;
-}
+    .login-form input[type=text], input[type=password], input[type=email], input[type=tel],
+    .register-form input[type=text], input[type=password], input[type=email], input[type=tel],
+    .details-profile input[type=text], input[type=password], input[type=email], input[type=tel] {
+        padding: 10px;
+        width: 90%;
+        color: black;
+        outline: none;
+        border-radius: 10px;
+        border: 1px solid #c2c1c1;
+    }
 
 .login-form .buttons,
 .register-form .buttons{
@@ -625,10 +636,8 @@ justify-content: center;
 }
 
 .register-part .info-client a {
-
     margin-top:25px;
     background-color: #3b3b3b;
-
 }
 
 .register-form {
@@ -650,6 +659,69 @@ justify-content: center;
     margin-bottom:20px;
 }
 
-    .register-form .buttons p{
-       padding-left:65px;
+.register-form .buttons p{
+    padding-left:65px;
+}
+
+
+/*----------------LOGIN AND REGISTER------------------*/
+.account-details{
+    display:flex;
+    margin-top:30px;
+}
+
+.account-details h2{
+    margin-top:30px;
+}
+.details-title{
+    margin-top:30px;
+}
+.details-title hr {
+    height: 2px;
+    border: none;
+    background: #e6e6e6;
+}
+
+    .account-details-col1 {
+        flex: 20%;
     }
+
+.account-details-col2 {
+    flex: 80%;
+    margin-left:15%;
+    margin-top:-5px;
+
+}
+
+.account-details-col1 a:link,
+.account-details-col1 a:visited {
+    display: block;
+    color: #177fe5;
+    padding: 10px;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 400;
+}
+
+.account-details-col1 a:hover{
+    color: #1b65aa;
+}
+
+.account-details-col1 a:focus,
+.account-details-col1 a:active {
+    background: #006ad1;
+    border-radius: 6px;
+    color: white;
+    outline: none;
+    box-shadow:none;
+}
+
+.details-profile{
+    width:40%;
+    margin-left:50px;
+}
+.details-profile
+
+.details-profile .controlls{
+    margin-bottom:20px;
+}

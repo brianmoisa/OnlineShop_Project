@@ -9,7 +9,7 @@
             <div>
                 <h2>Creare cont</h2>
                 <form asp-controller="Home" asp-action="Inregistrare" method="post" >
-                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div asp-validation-summary="ModelOnly" class="text-error"></div>
                     <div class="controlls">
                         <label asp-for="Nume">Nume *</label><br>
                         <input asp-for="Nume" type="text" placeholder="Introduceti numele"  />

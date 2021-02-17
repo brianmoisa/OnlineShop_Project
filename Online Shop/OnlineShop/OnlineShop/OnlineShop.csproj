@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Content\**" />
+    <Content Remove="Content\**" />
+    <EmbeddedResource Remove="Content\**" />
+    <None Remove="Content\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\Style.css" />
     <None Include="wwwroot\images\119055727_602481797060087_498092909064507726_n.png" />
   </ItemGroup>
@@ -21,10 +28,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Content\" />
   </ItemGroup>
 
 </Project>

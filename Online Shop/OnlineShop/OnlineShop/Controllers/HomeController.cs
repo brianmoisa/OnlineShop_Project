@@ -53,16 +53,16 @@ namespace OnlineShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = utilizator.Email, Email = utilizator.Email, PhoneNumber = utilizator.Telefon, FirstName=utilizator.Prenume, LastName=utilizator.Nume };
+                var user = new ApplicationUser { UserName = utilizator.Email, Email = utilizator.Email, PhoneNumber = utilizator.Telefon, FirstName = utilizator.Prenume, LastName = utilizator.Nume, UserType = "C" };
                 var result = await userManager.CreateAsync(user, utilizator.Parola);
 
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index","Home");
+                    return RedirectToAction("Index", "Home");
                 }
 
-                foreach(var error in result.Errors)
+                foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError("", error.Description);
                 }
@@ -70,40 +70,59 @@ namespace OnlineShop.Controllers
 
             return View(utilizator);
         }
-
-        //[HttpPost]
-        //public async Task<IActionResult> Logare(LogareViewModel user)
-        //{
-        //    Utilizator utiliz = new Utilizator();
-        //    utiliz = service.GetUser(user);
+        
+        [HttpPost]
+        public async Task<IActionResult> Logare(LogareViewModel utilizator)
+        {
+            if(ModelState.IsValid)
+            {
+                var result = await signInManager.PasswordSignInAsync(utilizator.Email, utilizator.Parola, utilizator.RememberMe, false);
             
-        //    if (utiliz == null)
-        //    {
-        //        var Msg = "Invalid";
-        //        return View();
-        //    }
-        //    else
-        //    {
-        //       // var claims = new List<Claim>{
-        //       // new Claim(ClaimTypes.Name, utiliz.Email),
-        //       //     new Claim("Full name", utiliz.Nume)
-        //       // };
-                
 
-        //       //var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-        //       // var authProperties = new AuthenticationProperties
-        //       // {
+            if(result.Succeeded)
+                {
+                    var utiliz = service.GetUserType(utilizator);
+                    if(utiliz.UserType == "A")
+                        return RedirectToAction("Index", "Home");
+                    //else
+                    //return RedirectToAction("Index", "Home");
+                }
 
-        //       // };
-        //       // await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity),
-        //       //     authProperties
-        //       //     );
-        //       // string returnUrl = Url.Content("~/");
-        //       // return RedirectToAction("Index",returnUrl);
-        //    }
+                ModelState.AddModelError(string.Empty, "Logare nereusita!");
 
-            
-        //}
+            }
+            return View(utilizator);
+        }
+
+
+        public async Task<IActionResult> Logout()
+        {
+           await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult DetaliiCont()
+        {
+            //var utiliz = User.Identity.Name;
+            return View();
+        }
+
+        public IActionResult Partial(string str)
+        {
+            var utilizId = userManager.GetUserId(HttpContext.User);
+            ApplicationUser  utilizator = userManager.FindByIdAsync(utilizId).Result;
+
+            DetaliiUtilizatorViewModel detalii = new DetaliiUtilizatorViewModel
+            {
+                Email = utilizator.Email,
+                Nume = utilizator.LastName,
+                Prenume = utilizator.FirstName,
+                Telefon = utilizator.PhoneNumber
+
+            };
+            return View(str,detalii);
+        }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

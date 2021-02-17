@@ -41,11 +41,12 @@
                 <div class="others">
                     @if (signInManager.IsSignedIn(User))
                     {
-                        <a href="#"><ion-icon name="person"></ion-icon></a> <a asp-controller="Home" asp-action="Logare">Logout @User.Identity.Name</a>
+                        <a href="#"><ion-icon name="person"></ion-icon></a> <a asp-controller="Home" asp-action="DetaliiCont"> Contul meu</a>
                     }
                     else
                     {
-                        <a href="#"><ion-icon name="person"></ion-icon></a> <a asp-controller="Home" asp-action="Logare">Contul meu</a>
+                        <a href="#"><ion-icon name="person"></ion-icon></a> <a asp-controller="Home" asp-action="Logare">Logare</a>
+
                     }
 
 

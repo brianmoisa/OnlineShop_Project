@@ -1,0 +1,32 @@
+﻿@model OnlineShop.ViewModels.DetaliiUtilizatorViewModel
+@{
+    Layout = null;
+}
+
+    <div class="details-profile">
+        
+            
+            <div class="controlls">
+                <label asp-for="Nume">Nume *</label><br>
+                <input asp-for="Nume" type="text" disabled /> 
+            </div>
+
+            <div class="controlls">
+                <label asp-for="Prenume">Prenume *</label><br>
+                <input asp-for="Prenume" type="text"  disabled/>
+
+            </div>
+
+            <div class="controlls">
+                <label asp-for="Email"></label><br>
+                <input asp-for="Email" type="text" disabled />
+
+            </div>
+
+            <div class="controlls">
+                <label asp-for="Telefon">Telefon *</label><br>
+                <input asp-for="Telefon" type="tel" disabled/>
+               
+            </div>
+
+    </div>

@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "DetaliiCont";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+
+    <div class="details-title">
+        <h2>Detalii cont</h2>
+        <hr />
+    </div>
+
+    <div class="account-details">
+        <div class="account-details-col1">
+
+            <a href="#" onclick="Detalii('Part1')" id="primul">Profil</a>
+            <a href="#" onclick="Detalii('Part2')">Email</a>
+            <a href="#" onclick="Detalii('Part2')">Password</a>
+            <a href="#" onclick="Detalii('Part2')">Date personale</a>
+            <a asp-controller="Home" asp-action="Logout" onclick="Detalii('Part2')">Logout</a>
+        </div>
+        <div class="account-details-col2" id="partial-view">
+
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var url = "/Home/Partial?str=" + "_Profil";
+        $("#primul").focus();
+        $("#partial-view").load(url)
+    });
+    function Detalii(variabila) {
+        var url = "/Home/Partial?str=" +variabila;
+        $("#partial-view").load(url);
+    }
+</script>
+

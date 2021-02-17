@@ -12,21 +12,32 @@
         <h2>Logare</h2>
         <div class="container-login">
             <div class="login-form">
+
                 <form asp-controller="Home" asp-action="Logare" method="post">
-                    <label asp-for="Email">Adresa e-mail *</label><br>
-                    <input asp-for="Email" type="text" placeholder="Introduceti adresa de e-mail" /><br>
 
-                    <label asp-for="Parola">Parola *</label><br>
-                    <input asp-for="Parola" type="password" placeholder="Introduceti parola" /><br>
-
-                    <label asp-for="RememberMe">
-                        <input asp-for="RememberMe" />@Html.DisplayNameFor(m => m.RememberMe)
-                    </label>
-                    <div class="buttons">
-                        <input type="submit" name="btnSubmit" value="Logare" class="btnSubmit" />
-                        <a>Ati uitat parola?</a>
-                        <p>* Campuri obligatorii</p>
+                    <div asp-validation-summary="ModelOnly" class="text-error"><p></p></div>
+                    <div class="controlls">
+                        <label asp-for="Email">Adresa e-mail *</label><br>
+                        <input asp-for="Email" type="text" placeholder="Introduceti adresa de e-mail" />
+                        <span asp-validation-for="Email" class="text-error"></span>
+                        <br>
                     </div>
+
+                    <div class="controlls">
+                        <label asp-for="Parola">Parola *</label><br>
+                        <input asp-for="Parola" type="password" placeholder="Introduceti parola" />
+                        <span asp-validation-for="Parola" class="text-error"></span>
+                        <br>
+                    </div>
+
+                        <label asp-for="RememberMe">
+                            <input asp-for="RememberMe" />@Html.DisplayNameFor(m => m.RememberMe)
+                        </label>
+                        <div class="buttons">
+                            <input type="submit" name="btnSubmit" value="Logare" class="btnSubmit" />
+                            <a>Ati uitat parola?</a>
+                            <p>* Campuri obligatorii</p>
+                        </div>
 
                 </form>
 

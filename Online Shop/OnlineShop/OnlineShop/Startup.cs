@@ -16,6 +16,8 @@ using OnlineShop.Data;
 using OnlineShop.Repository;
 using Microsoft.AspNetCore.Authorization;
 using OnlineShop.Models;
+using Identity.IdentityPolicy;
+using OnlineShop.PasswordValidation;
 
 namespace OnlineShop
 {
@@ -38,7 +40,8 @@ namespace OnlineShop
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            
+            services.AddTransient<IdentityErrorDescriber, CustomIdentityErrorDescriber>(); //clasa pentru override error message
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -47,7 +50,13 @@ namespace OnlineShop
             );
 
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>(options=>
+            {
+                options.Password.RequiredLength = 4;
+                options.User.RequireUniqueEmail = true;
+
+
+            })
                 .AddEntityFrameworkStores<ApplicationDBContext>();
 
             //services.AddDefaultIdentity<ApplicationUser>().AddEntityFrameworkStores<ApplicationDBContext>();
