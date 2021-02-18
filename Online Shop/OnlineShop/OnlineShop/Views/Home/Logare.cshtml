@@ -29,10 +29,11 @@
                         <span asp-validation-for="Parola" class="text-error"></span>
                         <br>
                     </div>
-
+                    <div class="remember-me">
                         <label asp-for="RememberMe">
-                            <input asp-for="RememberMe" />@Html.DisplayNameFor(m => m.RememberMe)
+                            <input asp-for="RememberMe" /><span>@Html.DisplayNameFor(m => m.RememberMe)</span>
                         </label>
+                    </div>
                         <div class="buttons">
                             <input type="submit" name="btnSubmit" value="Logare" class="btnSubmit" />
                             <a>Ati uitat parola?</a>
@@ -45,7 +46,7 @@
 
             <div class="register-part">
                 <div class="info-client">
-                    <h3>Client nou</h3>
+                    <h2>Client nou</h2>
                     <p>Prin crearea unui cont în cadrul magazinului, veți putea parcurge mai rapid procesul de finalizare a comenzilor, veți avea posibilitatea de a stoca mai multe adrese de expediere, de a vedea și urmări comenzile și multe altele.</p>
                     <div class="buttons">
                         <input type="button" name="btnSubmit" value="Inregistrare" class="btnSubmit" onclick="@("window.location.href='" + @Url.Action("Inregistrare", "Home") + "'");" />

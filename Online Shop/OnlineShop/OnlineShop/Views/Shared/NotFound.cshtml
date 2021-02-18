@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Not Found";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <br />
+    <h1>@ViewBag.ErrorMessage</h1>
+    <a asp-action="Index" asp-controller="Home">
+        Catre pagina principala
+    </a>
+</div>

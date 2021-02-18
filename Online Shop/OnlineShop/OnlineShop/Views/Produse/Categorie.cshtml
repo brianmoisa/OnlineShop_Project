@@ -2,7 +2,9 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
+
 <link href="~/css/Style.css" rel="stylesheet" />
 
 <section class="products-section">
@@ -33,6 +35,7 @@
 
                 @foreach (var item in Model.Produse)
                 {
+                  
 
                         <div class="card">
                             <div class="img">
@@ -46,7 +49,7 @@
                             <div class="prices without-promo">
                                 <div class="title">Pret: @item.Pret RON</div>
                             </div>
-                            <div class="btn">
+                            <div class="btn-buy">
                                 <button>Cumpara</button>
                             </div>
                         </div>

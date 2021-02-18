@@ -2,8 +2,15 @@
 @{
     ViewData["Title"] = "ProdusDetalii";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
+    @*var val = "";
+    if (@Model.Cantitate == 0)
+    {
+        val = "disabled";
+    }
+        *@
+}
+  
 <link href="~/css/Style.css" rel="stylesheet" />
 
 <section class="section-product-solo">
@@ -19,14 +26,14 @@
 
                 <div class="content-prod-solo">
                     <div class="title-price">
-                        <h1>@Model.Nume-@Model.Brand</h1>
+                        <h1>@Model.Nume - @Model.Brand</h1>
                         <h2>Pret: @Model.Pret RON</h2>
-                        <h4>Veți câștiga @(@Model.Pret/50) puncte de fidelitate pentru acest articol</h4>
+                        <h4>Veți câștiga @(@Model.Pret / 50) puncte de fidelitate pentru acest articol</h4>
                         <h5>Stoc disponibil: @Model.Cantitate bucati</h5>
                     </div>
                     <div class="buy clearfix">
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
-                        <input type="number" class="quantity" id="id_form-0-quantity" min="1" max="@Model.Cantitate" name="form-0-quantity" value="1">
+                        <input type="number" class="quantity" id="id_form-0-quantity" min="1" max="@Model.Cantitate" name="form-0-quantity" value="1" >
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
 
                         <a href="#" class="btn-buy">Adauga in cos</a>
@@ -46,16 +53,18 @@
                         @if (Model.Descriere != null)
                         {
                             string[] descrieri = @Model.Descriere.Split('.');
-                            int i = 0;
+                            string str2 = "";
 
-                            foreach (var str in descrieri)
+                            foreach (string str in descrieri)
                             {
-                                i = i + 1;
-                                @str.Trim();
-                                if (i < descrieri.Length)
+                                if (str != "")
                                 {
+                                    str2 = str + '.';
+                                    @str2.Trim();
                                     <br>
                                 }
+
+                             
 
                             }
                         }
@@ -66,22 +75,22 @@
                     <h3>Detalii tehnice</h3>
                     <hr>
                     <p>
-                    @if (Model.DetaliiTehnice != null)
-                    {
-                        string[] detalii = @Model.DetaliiTehnice.Split('.');
-                        int i = 0;
-
-                        foreach (var str in detalii)
+                        @if (Model.DetaliiTehnice != null)
                         {
-                            i = i + 1;
-                            @str.Trim();
-                            if (i < detalii.Length)
-                            {
-                                <br>
-                            }
+                            string[] detalii = @Model.DetaliiTehnice.Split('.');
+                            string str2 = "";
 
+                            foreach (var str in detalii)
+                            {
+                                if (str != "")
+                                {
+                                    str2 = str + '.';
+                                    @str2.Trim();
+                                    <br>
+                                }
+
+                            }
                         }
-                    }
 
                     </p>
                 </div>
@@ -90,7 +99,7 @@
                     <h3>Recenzii</h3>
                     <hr>
                     <p>
-                       0 Recenzii
+                        0 Recenzii
                     </p>
                 </div>
 

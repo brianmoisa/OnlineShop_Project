@@ -23,11 +23,18 @@ namespace OnlineShop.Controllers
         // [Route("/Produse/ProduseCurrent",
         //Name = "prod")]
         [HttpGet]
-        [Route("Produse/Produse/{id}")]
+        [Route("Produse/Categorie/{id}")]
 
-        public IActionResult Produse(string id)
+        public IActionResult Categorie(string id)
         {
-            return View(_db.GetProduseCategorii(id));
+            ProduseCategoriiViewModel produse_categ = _db.GetProduseCategorii(id);
+            if(produse_categ.Produse == null)
+            {
+                Response.StatusCode = 404;
+                return View("_ErrorView", "Categoria '"+id+"' introdusa nu a fost gasita!");
+            }
+
+            return View(produse_categ);
         }
 
         [HttpGet]
@@ -35,6 +42,12 @@ namespace OnlineShop.Controllers
         public IActionResult ProdusDetalii(int id)
         {
 
+            Produs prod = _db.GetProdus(id);
+            if(prod == null)
+            {
+                Response.StatusCode = 404;
+                return View("_ErrorView", "Produsul introdus nu a fost gasit!");
+            }
             return View(_db.GetProdus(id));
         }
     }

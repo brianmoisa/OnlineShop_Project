@@ -33,15 +33,14 @@ namespace OnlineShop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
+            //services.Configure<CookiePolicyOptions>(options =>
+            //{
+            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+            //    options.CheckConsentNeeded = context => true;
+            //    options.MinimumSameSitePolicy = SameSiteMode.None;
+            //});
 
             services.AddTransient<IdentityErrorDescriber, CustomIdentityErrorDescriber>(); //clasa pentru override error message
-
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -49,17 +48,13 @@ namespace OnlineShop
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
 
-
             services.AddIdentity<ApplicationUser, IdentityRole>(options=>
             {
-                options.Password.RequiredLength = 4;
+                options.Password.RequiredLength = 6;
                 options.User.RequireUniqueEmail = true;
-
-
             })
                 .AddEntityFrameworkStores<ApplicationDBContext>();
 
-            //services.AddDefaultIdentity<ApplicationUser>().AddEntityFrameworkStores<ApplicationDBContext>();
 
             services.AddMvc().AddRazorPagesOptions(options => options.AllowAreas = true);
             services.AddScoped<IHomeRepository, HomeRepository >();
@@ -75,8 +70,9 @@ namespace OnlineShop
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
                 app.UseHsts();
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
 
             app.UseHttpsRedirection();

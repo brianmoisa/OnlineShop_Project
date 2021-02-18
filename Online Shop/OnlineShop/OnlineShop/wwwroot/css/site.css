@@ -1,37 +1,802 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
-for details on configuring this project to bundle and minify static web assets. */
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*------------------Reutilisable classes-----------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    background: #fff;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+header {
+    background-color: #032c58;
+    height: 150px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+.row {
+    max-width: 1340px;
+    margin: 0 auto;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+label {
+    font-weight: normal;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
+/*------------------Reutilisable classes-----------------------*/
+
+
+nav {
+    background-color: #DAA520;
+}
+
+    nav:after {
+        content: '';
+        clear: both;
+        display: table;
     }
+
+    nav ul {
+        float: right;
+        list-style: none;
+        margin-right: 5%;
+        position: relative;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+
+        nav ul li {
+            display: inline-block;
+            background: #DAA520;
+            margin: 0 5px;
+            transition: background-color 0.2s;
+        }
+
+            nav ul li a {
+                color: #8B4513 !important;
+                text-decoration: none !important;
+                line-height: 70px;
+                font-size: 18px;
+                padding: 8px 10px;
+            }
+
+            nav ul li:hover {
+                background-color: #d19d19;
+            }
+
+        nav ul ul {
+            position: absolute;
+            top: 90px;
+            opacity: 0;
+            visibility: hidden;
+            transition: top .3s;
+            border-top: 3px solid #552503;
+        }
+
+        nav ul li:hover > ul {
+            top: 70px;
+            opacity: 1;
+            visibility: visible;
+            z-index: 9999;
+        }
+
+
+        nav ul ul li {
+            position: relative;
+            margin: 0px;
+            width: 150px;
+            float: none;
+            display: list-item;
+            border-bottom: 1px solid rgba(218, 165, 32,0.5);
+        }
+
+            nav ul ul li a:hover {
+                color: #552503;
+                box-shadow: none;
+            }
+
+            nav ul ul li:hover {
+                background: #DAA520
+            }
+
+    nav .phone {
+        float: left;
+        color: white;
+        font-size: 27px;
+        font-weight: 600;
+        line-height: 70px;
+        justify-content: center;
+    }
+
+        nav .phone ion-icon {
+            vertical-align: middle;
+        }
+
+.icon-list {
+    font-size: 25px;
+    margin-right: 10px;
+    vertical-align: middle;
+    margin-bottom: 3px;
+    color: #8B4513;
 }
+
+.header-container {
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+    padding-top: 45px;
+}
+
+.logo {
+    float: left;
+    color: white;
+    font-size: 36px;
+    font-weight: 900;
+    width: 15%;
+    align-self: center;
+    margin-right: 30px;
+}
+
+    .logo a:link,
+    .logo a:visited {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .logo a:hover,
+    .logo a:active {
+        color: #e5e3e3;
+    }
+
+.search-bar {
+    width: 40%;
+}
+
+    .search-bar input[type=text] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+        width: 350px;
+        border-radius: 15px;
+        outline: none;
+        color: black;
+        margin-left: 15%;
+    }
+
+    .search-bar button {
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: none;
+        font-size: 25px;
+        border: none;
+        cursor: pointer;
+        color: #000;
+        vertical-align: middle;
+        font-weight: 500;
+    }
+
+.others {
+    width: 15%;
+}
+
+    .others a {
+        text-decoration: none;
+        vertical-align: middle;
+        color: white;
+        font-size: 18px;
+    }
+
+        .others a:nth-child(even) {
+            margin-right: 25px;
+        }
+
+    .others ion-icon {
+        vertical-align: middle;
+        font-size: 25px;
+        color: white;
+    }
+
+/*------------------Home page----------------*/
+
+.section-products-home {
+    display: grid;
+    margin-top: 50px;
+}
+
+    .section-products-home h1 {
+        color: black;
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 30px;
+    }
+
+.slider {
+    max-width: 1150px;
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+    .slider .card {
+        max-width: 250px;
+        margin: 0 10px;
+        background: #fff;
+        height: 450px;
+        box-shadow: 5px 10px 18px #888888;
+        border: 1px solid;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+        .slider .card .img {
+            height: 200px;
+            width: 100%;
+        }
+
+            .slider .card .img img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+        .slider .card .title {
+            color: #000;
+            font-size: 15px;
+            text-align: left;
+            color: black;
+            line-height: 20px;
+        }
+
+        .slider .card .content {
+            padding: 10px 20px;
+            height: 80px;
+        }
+
+            .slider .card .content .title a:link,
+            .slider .card .content .title a:visited {
+                text-decoration: none;
+                color: #292929;
+                padding-bottom: 2px;
+                border-bottom: 1px solid transparent;
+                transition: border-bottom 0.3s, color 0.3s;
+            }
+
+            .slider .card .content .title a:hover,
+            .slider .card .content .title a:active {
+                color: #6c6c6c;
+                border-bottom: 1px solid #6c6c6c;
+            }
+
+        .slider .card .prices {
+            margin-top: 30px;
+            padding: 0px 20px;
+        }
+
+            .slider .card .prices .old-price {
+                text-decoration: line-through;
+                color: black;
+                font-size: 13px;
+            }
+
+            .slider .card .prices .new-price {
+                color: #B21307;
+            }
+
+        .slider .card .without-promo {
+            margin-bottom: 50px;
+        }
+
+        .slider .card .prices .title {
+            margin-bottom: 10px;
+        }
+
+        .slider .card .btn-buy {
+            margin-top: 20px;
+            margin-left: 30%;
+        }
+
+            .slider .card .btn-buy button {
+                background: #DAA520;
+                color: #000;
+                font-size: 17px;
+                font-weight: 400;
+                border: none;
+                padding: 5px;
+                border-radius: 10px;
+                outline: none;
+                cursor: pointer;
+                margin-top: 10px;
+                transition: transform 0.3s;
+            }
+
+
+                .slider .card .btn-buy button:hover {
+                    transform: scale(0.9);
+                }
+
+
+
+/*----------------Products------------------*/
+.products-section {
+    margin-top: 20px;
+}
+
+    .products-section .prod-categ-title p, h1, h3, h4, span {
+        color: black;
+        margin-top: 0;
+    }
+
+.container-products-filters .filters h3 {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.products-section .prod-categ-title h1 {
+    margin-bottom: 20px;
+    color: black;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.products-section .subgategories-filters h4 {
+    font-weight: 800;
+}
+
+.container-products-filters, container-product-solo {
+    display: flex;
+    margin-top: 60px;
+}
+
+.slider-products {
+    align-self: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex: 80%;
+}
+
+.filters {
+    flex: 20%;
+    margin-right: 50px;
+}
+
+.container-products-filters .subgategories-filters {
+    border: 1px solid #CBCBCB;
+    padding: 10px;
+}
+
+    .container-products-filters .subgategories-filters label {
+        cursor: pointer;
+    }
+
+        .container-products-filters .subgategories-filters label input[type=radio], span {
+            vertical-align: middle;
+        }
+
+
+
+/*----------------Produs-solo------------------*/
+
+
+.section-product-solo .container {
+    display: block;
+}
+
+.section-product-solo h1, h2 {
+    color: black;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.section-product-solo h3 {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.section-product-solo h4 {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.section-product-solo h5 {
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+
+.section-product-solo .row p {
+    color: black;
+    margin-top: 10px;
+}
+
+.section-product-solo .row span {
+    font-weight: bold;
+}
+
+.section-product-solo .img-content {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.img-content .img {
+    height: 500px;
+    margin-right: 30px;
+}
+
+    .img-content .img img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+.img-content .content-prod-solo {
+    padding-left: 100px;
+    display: block;
+}
+
+.img-content .title-price, .buy {
+    padding-top: 40px;
+}
+
+.section-product-solo input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.section-product-solo input[type=number]::-webkit-inner-spin-button,
+.section-product-solo input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.section-product-solo .content-prod-solo button {
+    color: black;
+    outline: none;
+    -webkit-appearance: none;
+    border: 1px solid #CBCBCB;
+    font-size: 35px;
+    vertical-align: middle;
+    cursor: pointer;
+    height: 55px;
+    max-width: 70px;
+    float: left;
+    padding: 0px 10px;
+    background-color: #EEEEEE;
+}
+
+.section-product-solo .content-prod-solo input[type=number] {
+    color: black;
+    max-width: 70px;
+    padding: 5px;
+    border: solid #CBCBCB;
+    border-width: 1px 0px;
+    font-size: 25px;
+    height: 55px;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    float: left;
+}
+
+.img-content .buy a:visited,
+.img-content .buy a:link {
+    color: black;
+    text-decoration: none;
+    float: left;
+    vertical-align: middle;
+    padding-top: 16px;
+    padding-left: 25px;
+    height: 55px;
+    width: 158px;
+    background: #DAA520;
+    margin-left: 40px;
+    transition: background-color 0.2s;
+    font-size: 15px;
+}
+
+.img-content .buy a:hover,
+.img-content .buy a:active {
+    background-color: #b48611;
+}
+
+.section-product-solo .prod-whishlist {
+    margin-top: 35px;
+    font-size: 15px;
+}
+
+    .section-product-solo .prod-whishlist a {
+        text-decoration: none;
+        vertical-align: middle;
+        color: black;
+    }
+
+    .section-product-solo .prod-whishlist ion-icon {
+        vertical-align: middle;
+        font-size: 25px;
+        color: black;
+    }
+
+.description-and-details {
+    width: 80%;
+    margin: 0 auto;
+}
+
+    .description-and-details .description, .details, .reviews {
+        margin-top: 20px;
+        text-align: justify;
+    }
+
+    .description-and-details hr {
+        border-top: 2px solid #c3c3c3;
+    }
+
+    .description-and-details p {
+        font-size: 15px;
+    }
+
+
+/*----------------LOGIN AND REGISTER------------------*/
+.container-login {
+    display: flex;
+    width: 100%;
+    border: 1px solid #e6e6e6;
+    height: 340px;
+}
+
+.login-form {
+    flex: 50%;
+    background-color: #e6e6e6;
+}
+
+    .login-form form {
+        padding-top: 22px;
+        padding-left: 22px;
+    }
+
+    .login-form .controlls,
+    .register-form .controlls {
+        margin-top: 15px;
+    }
+
+    .login-form .text-error ul,
+    .register-form .text-error ul {
+        list-style: none;
+    }
+
+        .login-form .text-error ul li,
+        .register-form .text-error ul li {
+            color: red;
+        }
+
+    .login-form .controlls span,
+    .register-form .controlls span {
+        color: red;
+        font-size: 15px;
+    }
+
+    .login-form .remember-me {
+        margin-top: 5px;
+    }
+
+        .login-form .remember-me label:hover {
+            cursor: pointer;
+        }
+
+        .login-form .remember-me input {
+            margin-right: 10px;
+            vertical-align: top;
+        }
+
+        .login-form .remember-me span {
+            vertical-align: top;
+        }
+
+    .login-form label,
+    .register-form label,
+    .details-profile label {
+        color: black;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .login-form input[type=text], input[type=password], input[type=email], input[type=tel],
+    .register-form input[type=text], input[type=password], input[type=email], input[type=tel],
+    .details-profile input[type=text], input[type=password], input[type=email], input[type=tel] {
+        padding: 10px;
+        width: 90%;
+        color: black;
+        outline: none;
+        border-radius: 10px;
+        border: 1px solid #c2c1c1;
+    }
+
+    .login-form .buttons,
+    .register-form .buttons {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+        .login-form .buttons .btnSubmit,
+        .register-part .buttons .btnSubmit,
+        .register-form .buttons .btnSubmit {
+            margin-top: 10px;
+            background-color: #3b3b3b;
+            padding: 10px 30px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: background-color 0.3s;
+            color: white;
+        }
+
+            .login-form .buttons .btnSubmit:hover,
+            .register-part .buttons .btnSubmit:hover,
+            .register-form .buttons .btnSubmit:hover {
+                background-color: #555454;
+            }
+
+        .login-form .buttons a {
+            margin-top: 10px;
+            margin-left: 45px;
+            color: black;
+            cursor: pointer;
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+
+            .login-form .buttons a:hover,
+            .login-form .buttons a:visited {
+                color: #525252;
+            }
+
+        .login-form .buttons p,
+        .register-form .buttons p {
+            margin-top: 10px;
+            margin-left: 65px;
+            color: black;
+            font-style: italic;
+        }
+
+.register-part {
+    flex: 50%;
+}
+
+    .register-part .info-client {
+        height: 150px;
+        display: inline-block;
+        padding: 75px 25px;
+    }
+
+        .register-part .info-client p {
+            text-align: justify;
+            color: black;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .register-part .info-client h2 {
+            font-size: 25px;
+            font-weight: 700;
+            margin-top: 0;
+        }
+
+        .register-part .info-client a {
+            margin-top: 25px;
+            background-color: #3b3b3b;
+        }
+
+.register-form {
+    width: 50%;
+    margin: 50px auto;
+    border: 1px solid #e6e6e6;
+}
+
+    .register-form form {
+        width: 95%;
+        margin: 0 auto;
+        display: block;
+        padding-left: 5%;
+    }
+
+    .register-form h2 {
+        text-align: center;
+    }
+
+    .register-form .buttons .btnSubmit {
+        margin-bottom: 20px;
+    }
+
+    .register-form .buttons p {
+        padding-left: 65px;
+    }
+
+
+/*----------------LOGIN AND REGISTER------------------*/
+.account-details {
+    display: flex;
+    margin-top: 30px;
+}
+
+    .account-details h2 {
+        margin-top: 30px;
+    }
+
+.details-title {
+    margin-top: 30px;
+}
+
+    .details-title hr {
+        height: 2px;
+        border: none;
+        background: #e6e6e6;
+    }
+
+.account-details-col1 {
+    flex: 20%;
+}
+
+.account-details-col2 {
+    flex: 80%;
+    margin-left: 15%;
+    margin-top: -5px;
+}
+
+.account-details-col1 a:link,
+.account-details-col1 a:visited {
+    display: block;
+    color: #177fe5;
+    padding: 10px;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 400;
+}
+
+.account-details-col1 a:hover {
+    color: #1b65aa;
+}
+
+.account-details-col1 a:focus,
+.account-details-col1 a:active {
+    background: #006ad1;
+    border-radius: 6px;
+    color: white;
+    outline: none;
+    box-shadow: none;
+}
+
+.details-profile {
+    width: 40%;
+    margin-left: 50px;
+}
+
+    .details-profile
+
+    .details-profile .controlls {
+        margin-bottom: 20px;
+    }

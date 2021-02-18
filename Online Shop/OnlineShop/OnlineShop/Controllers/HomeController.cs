@@ -40,6 +40,16 @@ namespace OnlineShop.Controllers
 
         public IActionResult Logare()
         {
+            //try
+            //{
+            //    Convert.ToInt16("dada");
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    throw ex;
+            //}
+
             return View();
         }
 
@@ -101,17 +111,17 @@ namespace OnlineShop.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult DetaliiCont()
+        public async Task<IActionResult> DetaliiCont()
         {
-            //var utiliz = User.Identity.Name;
+            ApplicationUser utilizator = await userManager.GetUserAsync(HttpContext.User);
+            if (utilizator == null)
+                return View("Logare");
+            else
             return View();
         }
-
-        public IActionResult Partial(string str)
+        public async Task<IActionResult> Partial(string str)
         {
-            var utilizId = userManager.GetUserId(HttpContext.User);
-            ApplicationUser  utilizator = userManager.FindByIdAsync(utilizId).Result;
-
+            ApplicationUser utilizator = await userManager.GetUserAsync(HttpContext.User);
             DetaliiUtilizatorViewModel detalii = new DetaliiUtilizatorViewModel
             {
                 Email = utilizator.Email,

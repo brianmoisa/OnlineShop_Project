@@ -20,33 +20,36 @@ namespace OnlineShop.Repository
         ProduseCategoriiViewModel IProduseCategoriiRepository.GetProduseCategorii(string idCateg)
         {
             ProduseCategoriiViewModel prod = new ProduseCategoriiViewModel();
- 
-            prod.Produse = from a in context.Categorii
-                           join b in context.Subcategorii on a.Nume_categorie equals b.Nume_categorie
-                           join c in context.Produse on b.Nume_subcateg equals c.Nume_subcateg
-                           where a.Nume_categorie == idCateg
-                           select new Produs()
-                           {
-                                Id_Produs = c.Id_Produs,
-                                Nume = c.Nume,
-                                Descriere = c.Descriere,
-                                Pret = c.Pret,
-                                Poza = c.Poza,
-                                Nume_subcateg = c.Nume_subcateg
-                           };
-             
-            prod.Subcategorie = from a in context.Subcategorii
-                                where a.Nume_categorie == idCateg
-                                select new Subcategorie
-                                {
-                                    Nume_subcateg = a.Nume_subcateg,
-                                    Descriere = a.Descriere
-                                };
 
-            prod.titluPagina = idCateg;
-            
+            if (context.Categorii.Any(x => x.Nume_categorie == idCateg))
+            {
+                prod.Produse = from a in context.Categorii
+                               join b in context.Subcategorii on a.Nume_categorie equals b.Nume_categorie
+                               join c in context.Produse on b.Nume_subcateg equals c.Nume_subcateg
+                               where a.Nume_categorie == idCateg
+                               select new Produs()
+                               {
+                                   Id_Produs = c.Id_Produs,
+                                   Nume = c.Nume,
+                                   Descriere = c.Descriere,
+                                   Pret = c.Pret,
+                                   Poza = c.Poza,
+                                   Nume_subcateg = c.Nume_subcateg
+                               };
 
-   
+                prod.Subcategorie = from a in context.Subcategorii
+                                    where a.Nume_categorie == idCateg
+                                    select new Subcategorie
+                                    {
+                                        Nume_subcateg = a.Nume_subcateg,
+                                        Descriere = a.Descriere
+                                    };
+
+                prod.titluPagina = idCateg;
+
+
+            }
+
             return prod;
         }
 

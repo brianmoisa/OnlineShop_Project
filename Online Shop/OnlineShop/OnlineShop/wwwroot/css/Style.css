@@ -2,7 +2,7 @@
 
 /*------------------Reutilisable classes-----------------------*/
 * {
-margin: 0px;
+margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: sans-serif;
@@ -29,7 +29,9 @@ header {
     display: table;
 }
 
-
+label{
+    font-weight:normal;
+}
 
 /*------------------Reutilisable classes-----------------------*/
 
@@ -50,18 +52,19 @@ nav ul{
     margin-right:5%;
     position:relative;
     font-weight:500;
+    margin-bottom:0;
 }
 
-    nav ul li {
-        display: inline-block;
-        background: #DAA520;
-        margin: 0 5px;
-        transition: background-color 0.2s;
-    }
+nav ul li {
+    display: inline-block;
+    background: #DAA520;
+    margin: 0 5px;
+    transition: background-color 0.2s;
+}
 
 nav ul li a {
-    color: #8B4513;
-    text-decoration: none;
+    color: #8B4513 !important;
+    text-decoration: none !important;
     line-height: 70px;
     font-size: 18px;
     padding: 8px 10px;
@@ -137,13 +140,15 @@ nav .phone ion-icon {
     float: left;
     color: white;
     font-size: 36px;
-    font-weight: 600;
-    flex: 15%;
+    font-weight: 900;
+    width: 15%;
     align-self: center;
+    margin-right:30px;
 }
 
 .logo a:link,
 .logo a:visited{
+    color:white;
     text-decoration:none;
     transition:color 0.3s;
 }
@@ -154,9 +159,7 @@ nav .phone ion-icon {
 }
 
 .search-bar {
-    flex: 35%;
-    align-self: center;
-    text-align: right;
+   width:45%;
 }
 
 .search-bar input[type=text] {
@@ -168,6 +171,7 @@ nav .phone ion-icon {
     border-radius: 15px;
     outline: none;
     color:black;
+    margin-left:15%;
 }
 
 .search-bar button {
@@ -184,13 +188,13 @@ nav .phone ion-icon {
 }
 
 .others{
-    flex:50%;
-    text-align:right;
+    width:40%;
 }
 .others a {
     text-decoration: none;
     vertical-align: middle;
     color:white;
+    font-size:18px;
 }
 
 .others a:nth-child(even){
@@ -298,12 +302,12 @@ justify-content: center;
     margin-bottom: 10px;
 }
 
-.slider .card .btn {
+.slider .card .btn-buy {
     margin-top: 20px;
    margin-left:30%;
 }
 
-.slider .card .btn button {
+.slider .card .btn-buy button {
     background: #DAA520;
     color: #000;
     font-size: 17px;
@@ -318,9 +322,9 @@ justify-content: center;
 }
 
 
-.slider .card .btn button:hover {
-    transform: scale(0.9);
-}
+    .slider .card .btn-buy button:hover {
+        transform: scale(0.9);
+    }
 
 
 
@@ -331,24 +335,32 @@ justify-content: center;
 
 .products-section .prod-categ-title p, h1, h3, h4, span {
     color: black;
-    margin-bottom:10px;
+    margin-top: 0;
 }
 
-.container-products-filters .filters h3{
-    margin-bottom:20px;
-    margin-left:10px;
+.container-products-filters .filters h3 {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-size: 22px;
+    font-weight: 700;
 }
 
 .products-section .prod-categ-title h1 {
     margin-bottom: 20px;
     color: black;
+    font-size:25px;
+    font-weight: 700;
 }
 
-.container-products-filters,container-product-solo {
-    display: flex;
-    margin-top: 60px;
+.products-section  .subgategories-filters h4 {
+    font-weight: 800;
 
 }
+
+    .container-products-filters, container-product-solo {
+        display: flex;
+        margin-top: 60px;
+    }
 
 .slider-products {
     align-self: flex-start;
@@ -381,14 +393,37 @@ justify-content: center;
 .section-product-solo .container{
     display:block;
 }
+
+.section-product-solo h1, h2 {
+    color: black;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.section-product-solo h3 {
+    font-weight: 700;
+    font-size: 20px;
+}    
+
+.section-product-solo h4 {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.section-product-solo h5 {
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+
 .section-product-solo .row p {
     color: black;
     margin-top: 10px;
-
 }
 .section-product-solo .row span {
     font-weight: bold;
-
 }
 
 .section-product-solo .img-content {
@@ -415,22 +450,11 @@ justify-content: center;
 .img-content .title-price, .buy {
     padding-top: 40px;
 }
- .img-content  h1, h2 {
-    color: black;
-    font-weight: 600;
-    margin-bottom: 20px;
+
+.section-product-solo input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
 }
-
-    .img-content h5{
-        color:black;
-        font-weight:400;
-        font-size:14px;
-    }
-
-    .section-product-solo input[type="number"] {
-        -webkit-appearance: textfield;
-        -moz-appearance: textfield;
-    }
 
 .section-product-solo input[type=number]::-webkit-inner-spin-button,
 .section-product-solo input[type=number]::-webkit-outer-spin-button {
@@ -472,21 +496,23 @@ justify-content: center;
     text-decoration: none;
     float: left;
     vertical-align: middle;
-    padding-top: 15px;
-    padding-left:20px;
+    padding-top: 16px;
+    padding-left:25px;
     height: 55px;
     width: 158px;
     background: #DAA520;
     margin-left:40px;
     transition: background-color 0.2s;
+    font-size:15px;
 }
 
 .img-content .buy a:hover,
 .img-content .buy a:active {
     background-color: #b48611;
 }
-.section-product-solo .prod-whishlist{
-    margin-top:35px;
+.section-product-solo .prod-whishlist {
+    margin-top: 35px;
+    font-size: 15px;
 }
 .section-product-solo .prod-whishlist a {
     text-decoration: none;
@@ -505,19 +531,25 @@ justify-content: center;
     margin: 0 auto;
 }
 
-    .description-and-details .description, .details, .reviews {
-        margin-top: 20px;
-        text-align: justify;
-    }
+.description-and-details .description, .details, .reviews {
+    margin-top: 20px;
+    text-align: justify;
+}
+.description-and-details hr {
+    border-top: 2px solid #c3c3c3;
+}
+
+.description-and-details p{
+    font-size:15px;
+}
 
 
 /*----------------LOGIN AND REGISTER------------------*/
-
 .container-login {
     display: flex;
     width: 100%;
     border: 1px solid #e6e6e6;
-    height:340px;
+    height: 340px;
 }
 
 .login-form {
@@ -543,30 +575,49 @@ justify-content: center;
     color: red;
 }
 
-    .login-form .controlls span,
+.login-form .controlls span,
 .register-form .controlls span{
     color:red;
     font-size:15px;
 }
-    .login-form label,
-    .register-form label,
-    .details-profile label{
-        color: black;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 14px;
-        font-weight: 600;
-    }
-    .login-form input[type=text], input[type=password], input[type=email], input[type=tel],
-    .register-form input[type=text], input[type=password], input[type=email], input[type=tel],
-    .details-profile input[type=text], input[type=password], input[type=email], input[type=tel] {
-        padding: 10px;
-        width: 90%;
-        color: black;
-        outline: none;
-        border-radius: 10px;
-        border: 1px solid #c2c1c1;
-    }
+
+.login-form .remember-me{
+    margin-top:5px;
+}
+
+.login-form .remember-me label:hover{
+    cursor:pointer;
+}
+.login-form .remember-me input {
+    margin-right: 10px;
+    vertical-align: top;
+}
+
+.login-form .remember-me span {
+    vertical-align: top;
+
+}
+
+.login-form label,
+.register-form label,
+.details-profile label {
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.login-form input[type=text], input[type=password], input[type=email], input[type=tel],
+.register-form input[type=text], input[type=password], input[type=email], input[type=tel],
+.details-profile input[type=text], input[type=password], input[type=email], input[type=tel] {
+    padding: 10px;
+    width: 90%;
+    color: black;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #c2c1c1;
+}
 
 .login-form .buttons,
 .register-form .buttons{
@@ -633,10 +684,17 @@ justify-content: center;
     text-align:justify;
     color:black;
     margin-bottom:15px;
+    font-size:16px;
+}
+
+.register-part .info-client h2{
+    font-size:25px;
+    font-weight:700;
+    margin-top:0;
 }
 
 .register-part .info-client a {
-    margin-top:25px;
+    margin-top: 25px;
     background-color: #3b3b3b;
 }
 
@@ -682,9 +740,9 @@ justify-content: center;
     background: #e6e6e6;
 }
 
-    .account-details-col1 {
-        flex: 20%;
-    }
+.account-details-col1 {
+    flex: 20%;
+}
 
 .account-details-col2 {
     flex: 80%;
@@ -717,11 +775,10 @@ justify-content: center;
 }
 
 .details-profile{
-    width:40%;
+    width:50%;
     margin-left:50px;
 }
-.details-profile
 
-.details-profile .controlls{
-    margin-bottom:20px;
-}
+    .details-profile .controlls {
+        margin-bottom: 20px;
+    }
