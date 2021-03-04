@@ -27,13 +27,18 @@ namespace OnlineShop.Controllers
 
         public IActionResult Categorie(string id)
         {
-            ProduseCategoriiViewModel produse_categ = _db.GetProduseCategorii(id);
-            if(produse_categ.Produse == null)
+            ProduseCategoriiViewModel produse_categ = new ProduseCategoriiViewModel()
+            {
+                Produse = _db.GetProductsByCategory(id),
+                Subcategorie = _db.GetSubcategByCategory(id)
+            };
+
+            if (produse_categ.Produse == null && produse_categ.Subcategorie == null)
             {
                 Response.StatusCode = 404;
                 return View("_ErrorView", "Categoria '"+id+"' introdusa nu a fost gasita!");
             }
-
+            produse_categ.titluPagina = id;
             return View(produse_categ);
         }
 

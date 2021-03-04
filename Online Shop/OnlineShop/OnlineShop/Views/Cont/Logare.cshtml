@@ -13,7 +13,7 @@
         <div class="container-login">
             <div class="login-form">
 
-                <form asp-controller="Home" asp-action="Logare" method="post">
+                <form asp-controller="Cont" asp-action="Logare" method="post">
 
                     <div asp-validation-summary="ModelOnly" class="text-error"><p></p></div>
                     <div class="controlls">
@@ -49,7 +49,7 @@
                     <h2>Client nou</h2>
                     <p>Prin crearea unui cont în cadrul magazinului, veți putea parcurge mai rapid procesul de finalizare a comenzilor, veți avea posibilitatea de a stoca mai multe adrese de expediere, de a vedea și urmări comenzile și multe altele.</p>
                     <div class="buttons">
-                        <input type="button" name="btnSubmit" value="Inregistrare" class="btnSubmit" onclick="@("window.location.href='" + @Url.Action("Inregistrare", "Home") + "'");" />
+                        <input type="button" name="btnSubmit" value="Inregistrare" class="btnSubmit" onclick="@("window.location.href='" + @Url.Action("Inregistrare", "Cont") + "'");" />
 
                     </div>
                 </div>

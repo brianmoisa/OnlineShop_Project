@@ -10,7 +10,8 @@ namespace OnlineShop.Repository
 {
    public interface IProduseCategoriiRepository
     {
-       ProduseCategoriiViewModel GetProduseCategorii(string idCateg);
-       Produs GetProdus(int id);
+        IEnumerable<Produs> GetProductsByCategory(string idCateg);
+        IEnumerable<Subcategorie> GetSubcategByCategory(string idCateg);
+        Produs GetProdus(int id);
     }
 }

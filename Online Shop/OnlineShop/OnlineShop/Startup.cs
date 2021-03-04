@@ -59,6 +59,7 @@ namespace OnlineShop
             services.AddMvc().AddRazorPagesOptions(options => options.AllowAreas = true);
             services.AddScoped<IHomeRepository, HomeRepository >();
             services.AddScoped<IProduseCategoriiRepository, ProduseCategoriiRepository>();
+            services.AddScoped<IContRepository, ContRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

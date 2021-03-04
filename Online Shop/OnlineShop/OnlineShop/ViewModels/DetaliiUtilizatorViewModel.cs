@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.ViewModels
 {
-    public class DetaliiUtilizatorViewModel:InregistrareViewModel
+    public class DetaliiUtilizatorViewModel
     {
-        [Required(ErrorMessage = "Introduceti parola")]
-        [DataType(DataType.Password)]
-        public string ParolaVeche { get; set; }
+        public string Email { get; set; }
 
-        [Required(ErrorMessage = "Introduceti adresa de email")]
-        [EmailAddress(ErrorMessage = "Introduceti o adresa de email valida")]
-        public string EmailNou { get; set; }
+        [DataType(DataType.Text)]
+        public string Nume { get; set; }
+
+        [DataType(DataType.Text)]
+        public string Prenume { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        public string Telefon { get; set; }
     }
 }

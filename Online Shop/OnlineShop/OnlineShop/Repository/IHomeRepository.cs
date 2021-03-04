@@ -13,10 +13,9 @@ namespace OnlineShop.Repository
     {
         IEnumerable<Produs> GetProducts();
         IEnumerable<Produs_promotie> GetProductsPromo();
-        ApplicationUser GetUserType(LogareViewModel utilizator);
 
 
-        //void AddUser(InregistrareViewModel user);
-        //Utilizator GetUser(LogareViewModel user);
+        //Task<IdentityResult> Inregistrare(InregistrareViewModel utilizator);
+
     }
 }
