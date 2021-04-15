@@ -22,5 +22,6 @@ namespace OnlineShop
                 .UseStartup<Startup>();
         
         //Test GITHUB
+        //Test GITHUB2
     }
 }
