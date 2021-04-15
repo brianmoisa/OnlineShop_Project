@@ -21,7 +21,7 @@ namespace OnlineShop
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
         
-        //Test GITHUB
-        //Test GITHUB2
+        //Test GITHUB3333
+
     }
 }
