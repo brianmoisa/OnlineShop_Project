@@ -18,6 +18,10 @@ using Microsoft.AspNetCore.Authorization;
 using OnlineShop.Models;
 using Identity.IdentityPolicy;
 using OnlineShop.PasswordValidation;
+using NETCore.MailKit.Extensions;
+using NETCore.MailKit.Infrastructure.Internal;
+using OnlineShop.MailKit;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace OnlineShop
 {
@@ -33,12 +37,6 @@ namespace OnlineShop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.Configure<CookiePolicyOptions>(options =>
-            //{
-            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-            //    options.CheckConsentNeeded = context => true;
-            //    options.MinimumSameSitePolicy = SameSiteMode.None;
-            //});
 
             services.AddTransient<IdentityErrorDescriber, CustomIdentityErrorDescriber>(); //clasa pentru override error message
 
@@ -48,18 +46,35 @@ namespace OnlineShop
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
 
-            services.AddIdentity<ApplicationUser, IdentityRole>(options=>
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 6;
                 options.User.RequireUniqueEmail = true;
+                options.SignIn.RequireConfirmedEmail = true;
             })
-                .AddEntityFrameworkStores<ApplicationDBContext>();
+                .AddEntityFrameworkStores<ApplicationDBContext>().
+                AddDefaultTokenProviders();
 
 
             services.AddMvc().AddRazorPagesOptions(options => options.AllowAreas = true);
             services.AddScoped<IHomeRepository, HomeRepository >();
             services.AddScoped<IProduseCategoriiRepository, ProduseCategoriiRepository>();
             services.AddScoped<IContRepository, ContRepository>();
+            services.AddScoped<IMapper,Mapper>();
+            services.AddTransient<IEmailSender, MailKitEmailSender>();
+            //var mailKitOptions = Configuration.GetSection("Email").Get<MailKitOptions>();
+            //services.AddMailKit(config => config.UseMailKit(mailKitOptions));
+
+
+            services.Configure<MailKitEmailSenderOptions>(options =>
+            {
+                options.Host_Address = Configuration["ExternalProviders:MailKit:SMTP:Address"];
+                options.Host_Port = Convert.ToInt32(Configuration["ExternalProviders:MailKit:SMTP:Port"]);
+                options.Host_Username = Configuration["ExternalProviders:MailKit:SMTP:Account"];
+                options.Host_Password = Configuration["ExternalProviders:MailKit:SMTP:Password"];
+                options.Sender_EMail = Configuration["ExternalProviders:MailKit:SMTP:SenderEmail"];
+                options.Sender_Name = Configuration["ExternalProviders:MailKit:SMTP:SenderName"];
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

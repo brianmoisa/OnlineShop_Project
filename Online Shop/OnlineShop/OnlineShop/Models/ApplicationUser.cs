@@ -16,5 +16,8 @@ namespace OnlineShop.Models
 
         [PersonalData]
         public string UserType { get; set; }
+
+        [PersonalData]
+        public DateTime PasswordUpdateOn { get; set; }
     }
 }

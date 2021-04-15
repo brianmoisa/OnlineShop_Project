@@ -1,44 +1,93 @@
-﻿
+﻿@model OnlineShop.ViewModels.DetaliiContViewModel
 @{
     ViewData["Title"] = "DetaliiCont";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
+    <h2>Detalii cont</h2>
+    <a asp-controller="Cont" asp-action="Logout">Logout</a>
+    <section class="section-detalii-cont">
+        <div class="details-card">
+            <div class="title-detalii-cont">
+                <div class="title"><h2>Informatii personale</h2></div>
+                <div class="icon"><a><ion-icon name="create-outline"></ion-icon> Modificare date personale</a></div>
+                <div class="other-info"><h5>Datele dumneavoastra personale</h5> </div>
 
-    <div class="details-title">
-        <h2>Detalii cont</h2>
-        <hr />
-    </div>
+            </div>
+            <div class="label-card">
+                <div class="row-label">
+                    <label asp-for="Nume">Nume:</label>
+                    <label asp-for="Nume">@Model.Nume</label>
 
-    <div class="account-details">
-        <div class="account-details-col1">
-            <a href="#" onclick="Detalii('_Profil')" id="primul">Profil</a>
-            <a href="#" onclick="Detalii('Part2')">Email</a>
-            <a href="#" onclick="Detalii('_Parola')">Password</a>
-            <a href="#" onclick="Detalii('Part2')">Date personale</a>
-            <a asp-controller="Cont" asp-action="Logout">Logout</a>
-        </div>
-
-        <div class="account-details-col2">
-
-            <div class="partial-views" id="partial-view">
-                @*<partial name="_Profil" />*@
+                </div>
+                <div class="row-label">
+                    <label asp-for="Prenume">Prenume:</label>
+                    <label asp-for="Prenume">@Model.Prenume</label>
+                </div>
 
             </div>
         </div>
 
-    </div>
+        <div class="details-card">
+            <div class="title-detalii-cont">
+                <div class="title"><h2>Parola</h2></div>
+                <div class="icon"><a asp-controller="Cont" asp-action="SchimbareParola"><ion-icon name="create-outline"></ion-icon> Modificare parola</a></div>
+                <div class="other-info"><h5>Este bine sa schimbati parola cat mai des in vedere evitarii acesului neautorizat!</h5> </div>
+
+            </div>
+            <div class="label-card">
+                <div class="row-label">
+                    <label asp-for="PasswordUpdateOn">Parola:</label>
+                    <label asp-for="PasswordUpdateOn">A fost modificata ultima oara la data de: @Model.PasswordUpdateOn</label>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="details-card">
+            <div class="title-detalii-cont">
+                <div class="title"><h2>Adresa de e-mail</h2></div>
+                <div class="icon"><a><ion-icon name="create-outline"></ion-icon> Modificare e-mail</a></div>
+
+            </div>
+            <div class="label-card">
+                <div class="row-label">
+                    <label asp-for="Email">E-mail:</label>
+                    <label asp-for="Email">@Model.Email</label>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="details-card">
+            <div class="title-detalii-cont">
+                <div class="title"><h2>Numar de telefon</h2></div>
+                <div class="icon"><a ><ion-icon name="create-outline"></ion-icon> Modificare numar de telefon</a></div>
+
+            </div>
+            <div class="label-card">
+                <div class="row-label">
+                    <label asp-for="Telefon">Telefon:</label>
+                    <label asp-for="Telefon">@Model.Telefon</label>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
 </div>
 
-<script>
+@*<script>
     $(document).ready(function () {
-        $("#primul").focus();
+
         var url = "/Cont/Partial?numeTab=" + "_Profil";
         $("#partial-view").load(url)
+        $("#primul").focus();
     });
     function Detalii(variabila) {
         var url = "/Cont/Partial?numeTab=" +variabila;
         $("#partial-view").load(url);
     }
-</script>
+</script>*@
 

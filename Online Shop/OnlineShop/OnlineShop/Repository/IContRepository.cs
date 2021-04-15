@@ -11,8 +11,16 @@ namespace OnlineShop.Repository
 {
     public interface IContRepository
     {
+        ApplicationUser ObtineUtilizator();
+        ApplicationUser ObtineTipUtilizator(LogareViewModel utilizator);
+        Task<IdentityResult> Inregistrare(ApplicationUser user,string parola);
+        Task<SignInResult> Logare(LogareViewModel utilizator);
+        Task<bool> VerificareEmailConfirmat(string email,string password);
+        void Delogare();
+        Task<IdentityResult> SchimbareParola(SchimbareParolaViewModel parola);
+        void ModificareDataSchimbareParola();
+        Task<string> GenerareTokenEmail(ApplicationUser user);
+        Task<IdentityResult> ConfirmareCont(string userId, string token);
 
-        ApplicationUser GetUserType(LogareViewModel utilizator);
-        ApplicationUser DetaliiContUtilizator();
     }
 }

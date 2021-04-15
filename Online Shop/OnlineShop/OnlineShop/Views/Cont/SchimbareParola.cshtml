@@ -1,0 +1,35 @@
+﻿@model OnlineShop.ViewModels.SchimbareParolaViewModel
+
+
+<section class="section-register">
+    <div class="row">
+        <div class="register-form schimbare-parola">
+            <h2>Schimbare Parola</h2>
+            <form asp-controller="Cont" asp-action="SchimbareParola" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-error"></div>
+                <div class="controlls">
+                    <label asp-for="ParolaVeche">Parola curenta *</label><br>
+                    <input asp-for="ParolaVeche" type="password" />
+                    <span asp-validation-for="ParolaVeche" class="text-danger"></span><br>
+                </div>
+
+                <div class="controlls">
+                    <label asp-for="ParolaNoua">Parola noua *</label><br>
+                    <input asp-for="ParolaNoua" type="password" />
+                    <span asp-validation-for="ParolaNoua" class="text-danger"></span><br>
+                </div>
+
+                <div class="controlls">
+                    <label asp-for="ConfirmParolaNoua">Confirmare parola *</label><br>
+                    <input asp-for="ConfirmParolaNoua" type="password" />
+                    <span asp-validation-for="ConfirmParolaNoua" class="text-danger"></span><br>
+                </div>
+
+                <div class="buttons">
+                    <input type="submit" name="btnSubmit" value="Schimbare parola" class="btnSubmit" />
+                </div>
+
+            </form>
+        </div>
+        </div>
+    </section>

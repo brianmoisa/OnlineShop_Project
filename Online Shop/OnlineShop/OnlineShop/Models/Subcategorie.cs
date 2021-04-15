@@ -16,6 +16,6 @@ namespace OnlineShop.Models
         public string Nume_categorie { get; set; }
         public Categorie Categorie { get; set; }
 
-        public List<Produs> Subgategorii { get; set; }
+        public List<Produs> Produse { get; set; }
     }
 }

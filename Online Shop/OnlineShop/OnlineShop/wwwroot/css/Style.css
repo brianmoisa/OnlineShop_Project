@@ -322,9 +322,9 @@ justify-content: center;
 }
 
 
-    .slider .card .btn-buy button:hover {
-        transform: scale(0.9);
-    }
+.slider .card .btn-buy button:hover {
+    transform: scale(0.9);
+}
 
 
 
@@ -333,34 +333,34 @@ justify-content: center;
     margin-top: 20px;
 }
 
-.products-section .prod-categ-title p, h1, h3, h4, span {
+.prod-categ-title p, h1, h3, h4, span {
     color: black;
     margin-top: 0;
 }
 
-.container-products-filters .filters h3 {
+ .filters h3 {
     margin-bottom: 20px;
     margin-left: 10px;
     font-size: 22px;
     font-weight: 700;
 }
 
-.products-section .prod-categ-title h1 {
+.prod-categ-title h1 {
     margin-bottom: 20px;
     color: black;
     font-size:25px;
     font-weight: 700;
 }
 
-.products-section  .subgategories-filters h4 {
+ .subgategories-filters h4 {
     font-weight: 800;
 
 }
 
-    .container-products-filters, container-product-solo {
-        display: flex;
-        margin-top: 60px;
-    }
+.container-products-filters, .container-product-solo {
+    display: flex;
+    margin-top: 60px;
+}
 
 .slider-products {
     align-self: flex-start;
@@ -374,14 +374,14 @@ justify-content: center;
     margin-right:50px;
 }
 
-.container-products-filters .subgategories-filters {
+.subgategories-filters {
     border: 1px solid #CBCBCB;
     padding:10px;
 }
-.container-products-filters .subgategories-filters label{
+.subgategories-filters label{
     cursor:pointer;
 }
-.container-products-filters .subgategories-filters label input[type=radio], span {
+.subgategories-filters label input[type=radio], span {
     vertical-align: middle;
 }
 
@@ -426,7 +426,7 @@ justify-content: center;
     font-weight: bold;
 }
 
-.section-product-solo .img-content {
+ .img-content {
     display: flex;
     width: 80%;
     margin: 0 auto;
@@ -443,11 +443,11 @@ justify-content: center;
     object-fit: cover;
 }
 
-.img-content .content-prod-solo {
+ .content-prod-solo {
     padding-left: 100px;
     display:block;
 }
-.img-content .title-price, .buy {
+.title-price, .buy {
     padding-top: 40px;
 }
 
@@ -561,39 +561,36 @@ justify-content: center;
     padding-left: 22px;
 }
 
-.login-form .controlls,
-.register-form .controlls{
+.controlls{
     margin-top:15px;
 }
 
-.login-form .text-error ul,
-.register-form .text-error ul{
+ .text-error ul{
     list-style:none;
 }
-.login-form .text-error ul li,
-.register-form .text-error ul li{
+.text-error ul li{
     color: red;
 }
 
-.login-form .controlls span,
-.register-form .controlls span{
+.controlls span,
+ .controlls span{
     color:red;
     font-size:15px;
 }
 
-.login-form .remember-me{
+ .remember-me{
     margin-top:5px;
 }
 
-.login-form .remember-me label:hover{
+.remember-me label:hover{
     cursor:pointer;
 }
-.login-form .remember-me input {
+ .remember-me input {
     margin-right: 10px;
     vertical-align: top;
 }
 
-.login-form .remember-me span {
+.remember-me span {
     vertical-align: top;
 
 }
@@ -619,17 +616,13 @@ justify-content: center;
     border: 1px solid #c2c1c1;
 }
 
-.login-form .buttons,
-.register-form .buttons{
+.buttons{
     display: flex;
     align-items: center;
     margin-top: 10px;
 }
 
-.login-form .buttons .btnSubmit,
-.register-part .buttons .btnSubmit,
-.register-form .buttons .btnSubmit,
-.details-profile .buttons .btnSubmit {
+.btnSubmit {
         margin-top: 10px;
         background-color: #3b3b3b;
         padding: 10px 30px;
@@ -644,14 +637,11 @@ justify-content: center;
         color: white;
     }
 
-.login-form .buttons .btnSubmit:hover,
-.register-part .buttons .btnSubmit:hover,
-.register-form .buttons .btnSubmit:hover,
-.details-profile .buttons .btnSubmit:hover{
+.btnSubmit:hover{
     background-color: #555454;
 }
 
-.login-form .buttons a {
+ .buttons a {
     margin-top:10px;
     margin-left:45px;
     color:black;
@@ -660,13 +650,12 @@ justify-content: center;
     font-weight: 500;
 }
 
-.login-form .buttons a:hover,
-.login-form .buttons a:visited{
+.buttons a:hover,
+.buttons a:visited{
     color: #525252;
 }
 
-.login-form .buttons p,
-.register-form .buttons p{
+ .buttons p{
     margin-top: 10px;
     margin-left: 65px;
     color: black;
@@ -677,26 +666,25 @@ justify-content: center;
     flex: 50%;
 }
 
-.register-part .info-client {
+.info-client {
     height: 150px;
     display: inline-block;
     padding:75px 25px;   
 }
 
-.register-part .info-client p{
+.info-client p{
     text-align:justify;
     color:black;
     margin-bottom:15px;
     font-size:16px;
 }
 
-.register-part .info-client h2{
+ .info-client h2{
     font-size:25px;
     font-weight:700;
     margin-top:0;
 }
-
-.register-part .info-client a {
+.info-client a {
     margin-top: 25px;
     background-color: #3b3b3b;
 }
@@ -716,74 +704,79 @@ justify-content: center;
 .register-form h2{
     text-align:center;
 }
+
 .register-form .buttons .btnSubmit{
     margin-bottom:20px;
 }
 
 .register-form .buttons p{
-    padding-left:65px;
+    padding-left:15%;
+}
+
+.schimbare-parola{
+    margin-top:100px;
 }
 
 
-/*----------------LOGIN AND REGISTER------------------*/
-.account-details{
-    display:flex;
-    margin-top:30px;
+/*----------------ACCOUNT DETAILS------------------*/
+
+.section-detalii-cont *{
+    color:black;
+}
+.section-detalii-cont {
+    width: 80%;
+    margin: 0 auto;
+    margin-top:60px;
 }
 
-.account-details h2{
-    margin-top:30px;
+
+.section-detalii-cont .details-card {
+margin-bottom: 60px;
+border: 1px solid #cfcfcf;
+box-shadow: 5px 10px 18px #888888;
 }
-.details-title{
-    margin-top:30px;
-}
-.details-title hr {
-    height: 2px;
-    border: none;
-    background: #e6e6e6;
+.title-detalii-cont {
+    display: flex;
+    padding: 25px 35px 15px 35px;
+    flex-wrap: wrap;
+    background-color: #ebebeb;
 }
 
-.account-details-col1 {
-    flex: 20%;
-}
 
-.account-details-col2 {
-    flex: 80%;
-    margin-left:15%;
-    margin-top:-5px;
-}
-.account-details-col2 h2{
-    margin-top:0;
-}
 
-.account-details-col1 a:link,
-.account-details-col1 a:visited {
-    display: block;
-    color: #177fe5;
-    padding: 10px;
+.title-detalii-cont .title h2 {
+    padding: 0;
+    margin: 0;
+}
+.title-detalii-cont .icon a {
+    float: right;
+    font-size: 15px;
     text-decoration: none;
-    transition: color 0.2s;
-    font-weight: 400;
+    text-transform: uppercase;
+    transition: 0.2s;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.account-details-col1 a:hover{
-    color: #1b65aa;
+.title-detalii-cont .icon a:hover,
+.title-detalii-cont .icon a:visited {
+    color: #464646;
+}
+.title-detalii-cont .icon a ion-icon {
+    vertical-align: -0.225em;
+    font-size: 25px;
+
 }
 
-.account-details-col1 a:focus,
-.account-details-col1 a:active {
-    background: #006ad1;
-    border-radius: 6px;
-    color: white;
-    outline: none;
-    box-shadow:none;
+.title-detalii-cont .title{
+    flex:50%;
 }
 
-.details-profile{
-    width:50%;
-    margin-left:50px;
+.title-detalii-cont .icon{
+    flex:50%;
 }
 
-.details-profile .controlls {
-    margin-bottom: 20px;
+.label-card {
+    padding: 25px 35px 25px 35px;
+    background-color: #f2f2f2;
 }
