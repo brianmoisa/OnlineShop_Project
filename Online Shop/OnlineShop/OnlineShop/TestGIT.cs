@@ -9,8 +9,8 @@ namespace OnlineShop
     {
         public int add()
         {
-            int x = 2;
-            int y = 2;
+            var x = 2;
+            var y = 2;
             return x + y;
         }
     }
