@@ -7,10 +7,8 @@ namespace OnlineShop
 {
     public class TestGIT
     {
-        public int add()
+        public int add(int x, int y)
         {
-            int x = 2;
-            int y = 2;
             return x + y;
         }
     }
