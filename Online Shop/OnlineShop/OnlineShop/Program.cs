@@ -21,8 +21,7 @@ namespace OnlineShop
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
         
-        //Test GITHUB3333
-        // Test Branch1 GIT
+//TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
 
     }
 }
