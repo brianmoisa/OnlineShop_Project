@@ -11,7 +11,8 @@ namespace OnlineShop
         //test
         public int add(int x, int y)
         {
-            return x + y;
+            int j = x + y;
+            return j;
         }
     }
 }
