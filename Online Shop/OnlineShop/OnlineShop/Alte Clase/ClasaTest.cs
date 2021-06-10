@@ -7,5 +7,6 @@ namespace OnlineShop.Alte_Clase
 {
     public class ClasaTest
     {
+        //test
     }
 }
