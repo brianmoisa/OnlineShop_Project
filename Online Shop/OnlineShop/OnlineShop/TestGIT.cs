@@ -14,9 +14,7 @@ namespace OnlineShop
             int j = x + y;
             return j;
         }
-        //Test12345
-        
-        
+//delete all
         
     }
 }
